@@ -1,28 +1,33 @@
 import React,{useState} from 'react'
 interface SignupForm {
-    email: string;
-    password: string;
-    remember: boolean;
-  }
+  name: string;
+  email: string;
+  password: string;
+  age: number;
+ 
+}
 export const Signup = () => {
 
     const [formData, setFormData] = useState<SignupForm>({
-        email: '',
-        password: '',
-        remember: false
+      name: "",
+    email: "",
+    password: "",
+    age: 0
       });
     
-      const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const { name, value, type, checked } = event.target;
-        setFormData(prevState => ({
+      const handleInputChange = (
+        event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+      ) => {
+        const { name, value } = event.target;
+        setFormData((prevState) => ({
           ...prevState,
-          [name]: type === 'checkbox' ? checked : value
+          [name] : value,
         }));
       };
     
       const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        console.log(formData); // replace with actual Signup logic
+        console.log(formData); 
       };
   return (
     <section className="bg-gray-50 dark:bg-gray-900">
@@ -34,7 +39,7 @@ export const Signup = () => {
       <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
           <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
               <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
-                  Sign in to your account
+                  Create your own Account
               </h1>
               <form className="space-y-4 md:space-y-6" action="#">
                   <div>
