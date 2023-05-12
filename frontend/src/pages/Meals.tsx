@@ -1,4 +1,3 @@
-import { NavBar } from "../components/NavBar";
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -18,7 +17,6 @@ export const Meals = () => {
 
   return (
     <>
-      <NavBar />
       <div className="flex h-screen p-6 bg-white   shadow dark:bg-gray-800 dark:border-gray-700 align-middle ">
         <div className="w-1/2 h-24 mx-auto my-28">
           <div className="container mx-0 min-w-full flex flex-col items-center ">
@@ -59,7 +57,7 @@ export const Meals = () => {
                       <button
                         className="flex items-center justify-left px-4 py-2 bg-green-400 w-full text-black rounded hover:bg-green-600 mr-2"
                         onClick={() => {
-                          navigate("/meals/exclusions")
+                          navigate("/meals/exclusions");
                         }}
                       >
                         <FontAwesomeIcon icon={faUserPlus} className="mr-2" />
@@ -69,7 +67,7 @@ export const Meals = () => {
                       <button
                         className="flex items-center justify-left px-4 py-2 bg-green-400 w-full  text-black rounded hover:bg-green-600 mr-2"
                         onClick={() => {
-                          navigate("/meals/exclusions")
+                          navigate("/meals/exclusions");
                         }}
                       >
                         <FontAwesomeIcon
@@ -83,7 +81,7 @@ export const Meals = () => {
                         className="flex items-center justify-left px-4 py-2 bg-green-400 w-full text-black rounded hover:bg-green-600"
                         onClick={() => {
                           console.log("Button 3 clicked!");
-                          navigate("/meals/exclusions")
+                          navigate("/meals/exclusions");
                         }}
                       >
                         <FontAwesomeIcon icon={faUser} className="mr-2" />
