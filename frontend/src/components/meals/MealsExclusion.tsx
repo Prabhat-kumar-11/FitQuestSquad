@@ -4,9 +4,17 @@ import beef from "../../assets/beef.png";
 import gluten from "../../assets/gluten-free.png";
 import everything from "../../assets/everything.png";
 import { NavBar } from "../NavBar";
+import { log } from "console";
+import { useNavigate } from "react-router";
 export const MealsExclusion = () => {
   const [selectedIcon, setSelectedIcon] = useState(null);
-
+  const arr: any = [];
+  const navigate = useNavigate();
+  const handleItem = (item: string) => {
+    let res = arr.includes(item);
+    res ? alert(`${item} is already selected`) : arr.push(item);
+    // console.log(arr);
+  };
   const icons = [
     {
       id: 1,
@@ -63,14 +71,14 @@ export const MealsExclusion = () => {
     },
   ];
 
-  const handleClick = (id) => {
+  const handleClick = (id: any) => {
     setSelectedIcon(id);
   };
 
   return (
     <>
       <NavBar />
-      <div className="dark:bg-gray-800 h-screen w-full p-10 mx-auto ">
+      <div className="dark:bg-gray-800  w-full h-screen  p-10 mx-auto ">
         <h2 className="text-2xl font-bold mb-4 text-white text-center">
           Exclusions
         </h2>
@@ -93,13 +101,13 @@ export const MealsExclusion = () => {
         {selectedIcon && (
           <div className="mt-10 text-center text-white  w-1/3 mx-auto ">
             <p className="font-semibold text-xl">
-              {icons.find((icon) => icon.id === selectedIcon).eliminated}
+              {icons.find((icon: any) => icon.id === selectedIcon)?.eliminated}
             </p>
             <p className="text-gray-700">
               <ul className="mt-6">
                 {icons
-                  .find((icon) => icon.id === selectedIcon)
-                  .description.map((item, index) => (
+                  .find((icon: any) => icon.id === selectedIcon)
+                  ?.description.map((item, index) => (
                     <li className="text-white text-left ml-20 " key={index}>
                       {">"} {item}
                     </li>
@@ -110,9 +118,10 @@ export const MealsExclusion = () => {
               <p className="text-xl w-full  ">Select An Option </p>
               <div className="flex justify-between p-4  ">
                 {icons
-                  .find((icon) => icon.id === selectedIcon)
-                  .items.map((item, index) => (
+                  .find((icon: any) => icon.id === selectedIcon)
+                  ?.items.map((item: any, index: any) => (
                     <button
+                      onClick={() => handleItem(item)}
                       className="p-2 mt-4 hover:border 2 border-blue-400 text-blue-400 rounded"
                       key={index}
                     >
@@ -120,6 +129,18 @@ export const MealsExclusion = () => {
                     </button>
                   ))}
               </div>
+            </div>
+            <div>
+              <button
+                className="px-4 py-2 mt-5 bg-blue-500 text-white rounded hover:bg-blue-600"
+                onClick={() => {
+                  arr.length > 0
+                    ? navigate("/meals/measurements")
+                    : alert("Please Select Exclusions");
+                }}
+              >
+                Next
+              </button>
             </div>
           </div>
         )}
