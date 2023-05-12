@@ -5,9 +5,10 @@ import goal from "../assets/goal.png";
 export const Section = () => {
   return (
     <div
-      className={`bg-[url('../src/assets/background.jpg')] bg-cover bg-center h-screen`}
+      className={`bg-[url('../src/assets/background.jpg')] bg-cover bg-center  relative`}
     >
-      <div className="min-h-screen bg-gray-50 bg-transparent">
+      <div className="absolute inset-0 bg-gray-900/70"></div>
+      <div className="relative min-h-screen bg-gray-50 bg-transparent">
         <div className="container mx-auto px-4 py-16 sm:px-6 lg:py-20 lg:px-8">
           <div className="max-w-3xl mx-auto">
             <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl md:text-6xl">
@@ -37,7 +38,7 @@ export const Section = () => {
                 <img
                   src={workout}
                   alt="workout"
-                  className=" rounded-full w-3/5 mb-4"
+                  className=" rounded-full w-3/5 mb-4 border-4 border-blue-500 "
                 />
                 <h2 className="text-lg font-medium text-white">
                   Workout Routines
@@ -51,7 +52,7 @@ export const Section = () => {
                 <img
                   src={nutrients}
                   alt="nutrition"
-                  className="rounded-full w-3/5 mb-4"
+                  className="rounded-full w-3/5 mb-4 border-4 border-blue-500 "
                 />
                 <h2 className="text-lg font-medium text-white">
                   Nutritional Guidance
@@ -65,7 +66,7 @@ export const Section = () => {
                 <img
                   src={goal}
                   alt="goal tracking"
-                  className="rounded-full w-3/5 mb-4"
+                  className="rounded-full w-3/5 mb-4 border-4 border-blue-500"
                 />
                 <h2 className="text-lg font-medium text-white">
                   Goal Tracking
