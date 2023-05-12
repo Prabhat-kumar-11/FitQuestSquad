@@ -6,10 +6,7 @@ import { AllRoutes } from "./routes/Allroutes";
 function App() {
   return (
     <div>
-
-      <Home />
-      <AllRoutes/>
-
+      <AllRoutes />
     </div>
   );
 }
