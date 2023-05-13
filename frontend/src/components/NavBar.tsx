@@ -1,6 +1,11 @@
 import logo from "../assets/logo.png";
+const token = localStorage.getItem('token');
 
 export const NavBar = () => {
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    
+  }
   return (
     <nav className="bg-white border-gray-200 dark:bg-gray-900">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
@@ -11,18 +16,30 @@ export const NavBar = () => {
           </span>
         </a>
         <div className="flex md:order-2 gap-2">
-          <button
+        {token ? (
+    <button onClick={handleLogout}
+    className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 "
+    >LogOut</button>
+) : (
+    <>
+    <a href="./login">
+        <button
             type="button"
             className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 "
-          >
+        >
             Login
-          </button>
-          <button
+        </button></a>
+        <a href="./signup">
+        <button
             type="button"
             className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 "
-          >
+        >
             SignUp
-          </button>
+        </button></a>
+    </>
+)}
+
+          
           <button
             data-collapse-toggle="navbar-cta"
             type="button"
