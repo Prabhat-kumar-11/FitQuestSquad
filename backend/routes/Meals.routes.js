@@ -1,25 +1,14 @@
 const express = require("express");
 const {
-  BreakFastModel,
-  LunchModel,
-  DinnerModel,
   MealsModel,
 } = require("../models/Meals.model");
 
 const mealsRouter = express.Router();
 
-function getRandomItem(arr) {
-  // get random index value
-  const randomIndex = Math.floor(Math.random() * arr.length);
-  // get random item
-  const item = arr[randomIndex];
-  return item;
-}
 mealsRouter.get("/", async (req, res) => {
   try {
     let meal = await MealsModel.find();
-    const result = getRandomItem(meal);
-    res.status(200).send(result);
+    res.status(200).send(meal);
   } catch (error) {
     res.status(400).send(error);
   }
