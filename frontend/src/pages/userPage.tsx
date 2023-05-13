@@ -1,93 +1,69 @@
-import { useState } from "react";
-
-interface UserInfo {
-  name: string;
-  age: number;
-  height: number;
-  weight: number;
-  fitnessGoals: string[];
-}
+import { Link } from "react-router-dom";
 
 export const UserPage = () => {
-  const [userInfo, setUserInfo] = useState<UserInfo>({
-    name: "",
-    age: 0,
-    height: 0,
-    weight: 0,
-    fitnessGoals: [],
-  });
-
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = event.target;
-    setUserInfo((prevUserInfo) => ({
-      ...prevUserInfo,
-      [name]: value,
-    }));
-  };
-
-  const handleFitnessGoalChange = (
-    event: React.ChangeEvent<HTMLSelectElement>
-  ) => {
-    const selectedOptions = Array.from(event.target.selectedOptions);
-    const selectedValues = selectedOptions.map((option) => option.value);
-    setUserInfo((prevUserInfo) => ({
-      ...prevUserInfo,
-      fitnessGoals: selectedValues,
-    }));
-  };
-
   return (
-    <div>
-      <h1>User Profile</h1>
-      <label htmlFor="name">Name:</label>
-      <input
-        type="text"
-        id="name"
-        name="name"
-        value={userInfo.name}
-        onChange={handleInputChange}
-      />
-      <br />
-      <label htmlFor="age">Age:</label>
-      <input
-        type="number"
-        id="age"
-        name="age"
-        value={userInfo.age}
-        onChange={handleInputChange}
-      />
-      <br />
-      <label htmlFor="height">Height:</label>
-      <input
-        type="number"
-        id="height"
-        name="height"
-        value={userInfo.height}
-        onChange={handleInputChange}
-      />
-      <br />
-      <label htmlFor="weight">Weight:</label>
-      <input
-        type="number"
-        id="weight"
-        name="weight"
-        value={userInfo.weight}
-        onChange={handleInputChange}
-      />
-      <br />
-      <label htmlFor="fitnessGoals">Fitness Goals:</label>
-      <select
-        id="fitnessGoals"
-        name="fitnessGoals"
-        multiple={true}
-        onChange={handleFitnessGoalChange}
-      >
-        <option value="Weight Loss">Weight Loss</option>
-        <option value="Muscle Gain">Muscle Gain</option>
-        <option value="Cardiovascular Health">Cardiovascular Health</option>
-      </select>
-      <br />
-      <button>Save</button>
+    <div className="flex h-screen bg-gray-200">
+      <div className="w-96 bg-blue-600 shadow-md">
+        <ul className="py-4">
+          <li className="px-6 py-2 text-white bg-blue-800 font-extrabold">
+            Dashboard
+          </li>
+
+          <li className="px-6 py-2 hover:bg-blue-300 text-white cursor-pointer">
+            <Link to={"/goaltracking"}>Goals add + </Link>
+          </li>
+          <li className="px-6 py-2 hover:bg-blue-300 text-white cursor-pointer">
+            <a href="#">Nutritional Guidance </a>
+          </li>
+          <li className="px-6 py-2 hover:bg-blue-300 text-white cursor-pointer">
+            <a href="#">Workout Routines </a>
+          </li>
+        </ul>
+      </div>
+
+      <div className="flex flex-wrap">
+        <div className="w-full md:w-1/2 p-4">
+          <div className="bg-white rounded-lg shadow-md p-6">
+            <h2 className="text-xl font-bold mb-4 underline ">
+              Goals Tracking
+            </h2>
+
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae
+              dapibus mauris.
+            </p>
+          </div>
+        </div>
+        <div className="w-full md:w-1/2 p-4">
+          <div className="bg-white rounded-lg shadow-md p-6">
+            <h2 className="text-xl font-bold mb-4 underline">
+              Workout Routines
+            </h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae
+              dapibus mauris.
+            </p>
+          </div>
+        </div>
+        <div className="w-full md:w-1/2 p-4">
+          <div className="bg-white rounded-lg shadow-md p-6">
+            <h2 className="text-xl font-bold mb-4">Container 3</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae
+              dapibus mauris.
+            </p>
+          </div>
+        </div>
+        <div className="w-full md:w-1/2 p-4">
+          <div className="bg-white rounded-lg shadow-md p-6">
+            <h2 className="text-xl font-bold mb-4">Container 4</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae
+              dapibus mauris.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
