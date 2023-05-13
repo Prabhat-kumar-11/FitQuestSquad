@@ -3,6 +3,8 @@ const cors = require("cors");
 const { connection } = require("./config/db");
 const { userRouter } = require("./routes/User.routes");
 const { mealsRouter } = require("./routes/Meals.routes");
+const { workoutsRouter } = require("./routes/Workouts.routes");
+
 require("dotenv").config();
 const app = express();
 
@@ -11,6 +13,8 @@ app.use(express.json());
 app.use(cors());
 app.use("/user",userRouter)
 app.use("/meals",mealsRouter);
+app.use("/workouts",workoutsRouter)
+
 
 //Home Page
 app.get("/", async (req, res) => {
