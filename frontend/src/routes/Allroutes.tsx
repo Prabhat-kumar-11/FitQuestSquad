@@ -7,6 +7,8 @@ import { Meals } from "../pages/Meals";
 import GoalTracking from "../pages/goalTracking";
 import { NavBar } from "../components/NavBar";
 import { UserPage } from "../pages/userPage";
+import { Login } from "../pages/Login";
+import { Signup } from "../pages/Signup";
 
 export const AllRoutes = () => {
   return (
@@ -19,6 +21,8 @@ export const AllRoutes = () => {
         <Route path="/userpage" element={<UserPage />} />
         <Route path="/meals/exclusions" element={<MealsExclusion />} />
         <Route path="/meals/measurements" element={<MealsMeasurements />} />
+        <Route path="/login" element={<Login/>} />
+        <Route path="/signup" element={<Signup/>} />
       </Routes>
     </>
   );
