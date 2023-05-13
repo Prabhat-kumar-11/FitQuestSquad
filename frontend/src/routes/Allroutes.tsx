@@ -9,6 +9,8 @@ import { NavBar } from "../components/NavBar";
 import { UserPage } from "../pages/userPage";
 import { Login } from "../pages/Login";
 import { Signup } from "../pages/Signup";
+import { WorkoutRoutines } from "../components/WorkoutRoutines";
+import { Workouts } from "../components/Workouts";
 
 export const AllRoutes = () => {
   return (
@@ -23,6 +25,8 @@ export const AllRoutes = () => {
         <Route path="/meals/measurements" element={<MealsMeasurements />} />
         <Route path="/login" element={<Login/>} />
         <Route path="/signup" element={<Signup/>} />
+        <Route path="/workout-routines" element={<WorkoutRoutines />} />
+        <Route path="/workout-routines/:title" element={<Workouts />} />
       </Routes>
     </>
   );
