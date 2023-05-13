@@ -161,11 +161,7 @@ export const MealsMeasurements = () => {
               />
             </div>
           )}
-          <div>
-            <button>Low</button>
-            <button>Medium</button>
-            <button>High</button>
-          </div>
+
           <div className="w-full  text-center 2 ">
             <button
               className="px-4 py-2 w-1/5 mt-5 bg-blue-500 text-white rounded hover:bg-blue-600"
