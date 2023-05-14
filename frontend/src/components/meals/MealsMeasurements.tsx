@@ -32,7 +32,7 @@ export const MealsMeasurements = () => {
         target: +data.target,
       };
       console.log(obj);
-      alert("Data Submitted")
+      alert("Data Submitted");
     } else {
       alert("Please fill in the data");
     }

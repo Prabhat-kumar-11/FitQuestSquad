@@ -31,7 +31,8 @@ export const Login:React.FC = () => {
           const {token} = res.data;
           localStorage.setItem('token', token);
           console.log(token);
-          navigate('/')
+          localStorage.setItem("userName",res.data.user)
+          navigate('/dashboard')
         })
         .catch((err) => {
           console.log(err);
