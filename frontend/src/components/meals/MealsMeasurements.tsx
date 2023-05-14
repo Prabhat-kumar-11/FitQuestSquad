@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 const initial = {
   height: "",
   weight: "",
@@ -10,6 +11,7 @@ export const MealsMeasurements = () => {
   const [data, setData] = useState(initial);
   const [weightOption, setWeightOption] = useState("no");
   const [showWeightInput, setShowWeightInput] = useState(false);
+  const navigate = useNavigate();
 
   const handleWeightOptionChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setWeightOption(e.target.value);
@@ -42,8 +44,10 @@ export const MealsMeasurements = () => {
         gender: data.gender,
         age: +data.age,
       };
-      console.log(obj);
+      // console.log(obj);
       alert("Data Submitted");
+      navigate("/meals/list");
+      setData(initial);
     } else {
       alert("Please fill in the data");
     }

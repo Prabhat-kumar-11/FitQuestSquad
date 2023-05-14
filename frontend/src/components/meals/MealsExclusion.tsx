@@ -3,8 +3,6 @@ import vegetable from "../../assets/vegetable.png";
 import beef from "../../assets/beef.png";
 import gluten from "../../assets/gluten-free.png";
 import everything from "../../assets/everything.png";
-import { NavBar } from "../NavBar";
-import { log } from "console";
 import { useNavigate } from "react-router";
 export const MealsExclusion = () => {
   const [selectedIcon, setSelectedIcon] = useState(null);
@@ -77,7 +75,7 @@ export const MealsExclusion = () => {
 
   return (
     <>
-      <NavBar />
+      {/* <NavBar /> */}
       <div className="dark:bg-gray-800  w-full h-screen  p-10 mx-auto ">
         <h2 className="text-2xl font-bold mb-4 text-white text-center">
           Exclusions
