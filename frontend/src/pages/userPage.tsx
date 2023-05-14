@@ -13,7 +13,7 @@ export const UserPage = () => {
             <Link to={"/goaltracking"}>Goals add + </Link>
           </li>
           <li className="px-6 py-2 hover:bg-blue-300 text-white cursor-pointer">
-            <a href="#">Nutritional Guidance </a>
+            <Link to={"/meals"}>Nutritional Guidance </Link>
           </li>
           <li className="px-6 py-2 hover:bg-blue-300 text-white cursor-pointer">
             <Link to={"/workout-routines"}>Workout Routines </Link>

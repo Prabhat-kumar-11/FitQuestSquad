@@ -43,8 +43,6 @@ export const WorkoutRoutines = () => {
           }
         </div>
       </div>
-
-      <Footer />
     </div>
   )
 }
