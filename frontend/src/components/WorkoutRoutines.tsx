@@ -2,23 +2,16 @@ import React, { useEffect, useState } from 'react';
 import { NavBar } from './NavBar';
 import { Footer } from './footer';
 import { useNavigate } from "react-router-dom";
-
-console.log(process.env.REACT_APP_BACKEND_URL);
+import { useDispatch, useSelector } from 'react-redux';
+import { getWorkoutsRoutines } from '../redux/Workouts/action';
 
 export const WorkoutRoutines = () => {
-  const [workouts, setWorkouts] = useState<any>([]);
   const navigate = useNavigate();
+  const dispatch: any = useDispatch();
+  const workouts = useSelector((store: any) => store.workoutsRoutinesReducer.workoutsRoutines)
 
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_BACKEND_URL}/workouts`)
-      .then(res => res.json())
-      .then(res => {
-        console.log(res);
-        setWorkouts(res);
-      })
-      .catch(err => {
-        console.log(err);
-      })
+    dispatch(getWorkoutsRoutines);
   }, []);
 
   const handleClick = (path: string) => {
