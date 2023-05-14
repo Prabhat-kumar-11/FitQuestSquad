@@ -12,6 +12,7 @@ import { Login } from "../pages/Login";
 import { Signup } from "../pages/Signup";
 import { WorkoutRoutines } from "../components/WorkoutRoutines";
 import { Workouts } from "../components/Workouts";
+import { Footer } from "../components/footer";
 
 export const AllRoutes = () => {
   return (
@@ -31,6 +32,7 @@ export const AllRoutes = () => {
         <Route path="/workout-routines/:title" element={<Workouts />} />
         <Route path="/dashboard" element={<UserPage />} />
       </Routes>
+      <Footer />
     </>
   );
 };

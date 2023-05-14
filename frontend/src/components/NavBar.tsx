@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import logo from "../assets/logo.png";
 import { logoutAction } from "../redux/Auth/Action";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 export const NavBar = () => {
   const dispatch: any = useDispatch();
   const navigate = useNavigate();
@@ -31,6 +31,11 @@ export const NavBar = () => {
           {token ? (
             <div className="text-white flex justify-normal items-center gap-2">
               <h1>{userName}</h1>
+             <Link to={"/dashboard"}> <button
+                className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 "
+              >
+                Dashboard
+              </button></Link>
               <button
                 onClick={handleLogout}
                 className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 "
