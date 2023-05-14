@@ -1,11 +1,22 @@
+import { useDispatch, useSelector } from "react-redux";
 import logo from "../assets/logo.png";
-const token = localStorage.getItem("token");
-const userName = localStorage.getItem("userName");
+import { logoutAction } from "../redux/Auth/Action";
+import { useNavigate } from "react-router-dom";
 export const NavBar = () => {
+  const dispatch: any = useDispatch();
+  const navigate = useNavigate();
+  const token = useSelector((store: any) => {
+    return store.authReducer.token;
+  });
+  const userName = useSelector((store: any) => {
+    return store.authReducer.user;
+  });
   const handleLogout = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("userName");
-    window.location.href = "/";
+    // localStorage.removeItem("token");
+    // localStorage.removeItem("userName");
+    // window.location.href = "/";
+    dispatch(logoutAction());
+    navigate("/");
   };
   return (
     <nav className="bg-white border-gray-200 dark:bg-gray-900">
