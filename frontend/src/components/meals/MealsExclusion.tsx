@@ -75,7 +75,6 @@ export const MealsExclusion = () => {
 
   return (
     <>
-      {/* <NavBar /> */}
       <div className="dark:bg-gray-800  w-full h-screen  p-10 mx-auto ">
         <h2 className="text-2xl font-bold mb-4 text-white text-center">
           Exclusions

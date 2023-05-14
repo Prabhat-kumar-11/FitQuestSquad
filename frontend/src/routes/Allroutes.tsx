@@ -29,7 +29,7 @@ export const AllRoutes = () => {
         <Route path="/signup" element={<Signup/>} />
         <Route path="/workout-routines" element={<WorkoutRoutines />} />
         <Route path="/workout-routines/:title" element={<Workouts />} />
-
+         <Route path="/dashboard" element={<UserPage />} />
       </Routes>
     </>
   );
