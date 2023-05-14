@@ -3,8 +3,6 @@ import vegetable from "../../assets/vegetable.png";
 import beef from "../../assets/beef.png";
 import gluten from "../../assets/gluten-free.png";
 import everything from "../../assets/everything.png";
-import { NavBar } from "../NavBar";
-import { log } from "console";
 import { useNavigate } from "react-router";
 export const MealsExclusion = () => {
   const [selectedIcon, setSelectedIcon] = useState(null);
