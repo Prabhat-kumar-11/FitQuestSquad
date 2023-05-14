@@ -3,14 +3,14 @@ import { NavBar } from './NavBar';
 import { Footer } from './footer';
 import { useNavigate } from "react-router-dom";
 
-const backendUrl = `http://localhost:8080`;
+console.log(process.env.REACT_APP_BACKEND_URL);
 
 export const WorkoutRoutines = () => {
   const [workouts, setWorkouts] = useState<any>([]);
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`${backendUrl}/workouts`)
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/workouts`)
       .then(res => res.json())
       .then(res => {
         console.log(res);

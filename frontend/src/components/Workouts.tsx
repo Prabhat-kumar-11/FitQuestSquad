@@ -3,14 +3,12 @@ import { NavBar } from './NavBar';
 import { Footer } from './footer';
 import { useParams } from "react-router-dom";
 
-const backendUrl = `http://localhost:8080`;
-
 export const Workouts = () => {
   const [exercises, setExercises] = useState<any>();
   const { title } = useParams();
 
   useEffect(() => {
-    fetch(`${backendUrl}/workouts/${title}`)
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/workouts/${title}`)
       .then(res => res.json())
       .then(res => {
         console.log(res.exercises);
