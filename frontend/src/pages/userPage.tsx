@@ -1,6 +1,18 @@
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 export const UserPage = () => {
+  const userMeals = useSelector((store: any) => {
+    return store.mealsReducer.meals;
+  });
+  interface Meal {
+    breakfast: string;
+    lunch: string;
+    dinner: string;
+  }
+
+  console.log(userMeals);
+
   return (
     <div className="flex h-screen bg-gray-200">
       <div className="w-96 bg-blue-600 shadow-md">
@@ -47,11 +59,26 @@ export const UserPage = () => {
         </div>
         <div className="w-full md:w-1/2 p-4">
           <div className="bg-white rounded-lg shadow-md p-6">
-            <h2 className="text-xl font-bold mb-4">Container 3</h2>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae
-              dapibus mauris.
-            </p>
+            <h2 className="text-xl font-bold mb-4">Meals Chart</h2>
+
+            <table>
+              <thead>
+                <tr>
+                  <th>Breakfast</th>
+                  <th>Lunch</th>
+                  <th>Dinner</th>
+                </tr>
+              </thead>
+              <tbody>
+                {userMeals.map((row: Meal, index: number) => (
+                  <tr key={index}>
+                    <td>{row.breakfast}</td>
+                    <td>{row.lunch}</td>
+                    <td>{row.dinner}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </div>
         <div className="w-full md:w-1/2 p-4">
